@@ -39,14 +39,15 @@ test:
     - ams
   commands:
     - pip check
-    - ams --help
+    - ams st
   requires:
     - pip
 
 about:
   home: https://github.com/CURENT/ams
   summary: Python software for dispatch modeling and co-simulation with dynanic.
-  license: GPL-3.0
+  license: GPL-3.0-or-later
+  license_family: GPL3
   license_file: LICENSE
 
 extra:
