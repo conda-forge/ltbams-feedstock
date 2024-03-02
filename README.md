@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ltbams-feedstoc
 
 Home: https://github.com/CURENT/ams
 
-Package license: GPL-3.0
+Package license: GPL-3.0-or-later
 
 Summary: Python software for dispatch modeling and co-simulation with dynanic.
 
