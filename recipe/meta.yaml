@@ -49,6 +49,11 @@ about:
   license: GPL-3.0-or-later
   license_family: GPL3
   license_file: LICENSE
+  doc_url: https://ltb.readthedocs.io/projects/ams/
+  description: |
+    AMS is a Python software designed for power system dispatch modeling and co-simulation with dynamics.
+    It serves as the market simulator for the CURENT Largescale Testbed, enabling stability-constrained
+    production cost and market operation modeling with credible dispatch results and competitive performance.
 
 extra:
   recipe-maintainers:
