@@ -9,6 +9,13 @@ Package license: GPL-3.0-or-later
 
 Summary: Python software for dispatch modeling and co-simulation with dynanic.
 
+Documentation: https://ltb.readthedocs.io/projects/ams/
+
+AMS is a Python software designed for power system dispatch modeling and co-simulation with dynamics.
+It serves as the market simulator for the CURENT Largescale Testbed, enabling stability-constrained
+production cost and market operation modeling with credible dispatch results and competitive performance.
+
+
 Current build status
 ====================
 
