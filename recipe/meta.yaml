@@ -1,5 +1,5 @@
 {% set name = "ltbams" %}
-{% set version = "0.9.10" %}
+{% set version = "0.9.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ltbams-{{ version }}.tar.gz
-  sha256: 7eb0b4d6cee959a4ff5f12d229cbc03436742a179721159dc6fce7cd8232c4b0
+  sha256: c51de2e0b4e6639c267ce826e6ff1093f5ed20d0b137ce421a89e84594dec4ca
 
 build:
   entry_points:
     - ams = ams.cli:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: |
+    mv pyproject.toml pyproject.toml.bak
+    {{ PYTHON }} -m pip install . --no-build-isolation --no-deps
+    mv pyproject.toml.bak pyproject.toml
   number: 0
   noarch: python
 
@@ -23,8 +26,8 @@ requirements:
     - setuptools
   run:
     - python >=3.9
-    - kvxopt >=1.3.2.0
-    - numpy <2.0
+    - kvxopt >=1.3.2.1
+    - numpy
     - scipy
     - sympy >=1.6,!=1.10.0
     - pandas
@@ -35,6 +38,7 @@ requirements:
     - pybind11
     - cvxpy
     - pyscipopt
+    - multiprocess <=0.70.16
 
 test:
   imports:
