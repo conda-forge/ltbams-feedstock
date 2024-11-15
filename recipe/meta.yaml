@@ -38,6 +38,7 @@ requirements:
     - pybind11
     - cvxpy
     - pyscipopt
+    - multiprocess <=0.70.16
 
 test:
   imports:
