@@ -12,7 +12,10 @@ source:
 build:
   entry_points:
     - ams = ams.cli:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: |
+    mv pyproject.toml pyproject.toml.bak
+    {{ PYTHON }} -m pip install . --no-build-isolation --no-deps
+    mv pyproject.toml.bak pyproject.toml
   number: 0
   noarch: python
 
