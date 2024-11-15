@@ -7,13 +7,13 @@ Home: https://github.com/CURENT/ams
 
 Package license: GPL-3.0-or-later
 
-Summary: Python software for dispatch modeling and co-simulation with dynanic.
+Summary: Python software for scheduling modeling and co-simulation with dynamics.
 
 Documentation: https://ltb.readthedocs.io/projects/ams/
 
-AMS is a Python software designed for power system dispatch modeling and co-simulation with dynamics.
+AMS is a Python software designed for power system scheduling modeling and co-simulation with dynamics.
 It serves as the market simulator for the CURENT Largescale Testbed, enabling stability-constrained
-production cost and market operation modeling with credible dispatch results and competitive performance.
+production cost and market operation modeling.
 
 
 Current build status
