@@ -41,6 +41,8 @@ requirements:
     - python {{ python_min }}
     - pip
     - setuptools
+    - cython
+    - scip
   run:
     - python >={{ python_min }}
     - kvxopt >=1.3.2.1
