@@ -1,5 +1,6 @@
 {% set name = "ltbams" %}
 {% set version = "1.0.2" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -21,11 +22,11 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - kvxopt >=1.3.2.1
     - numpy
     - scipy
@@ -34,10 +35,9 @@ requirements:
     - matplotlib-base
     - psutil
     - openpyxl
-    - andes >=1.8.7
+    - andes >=1.9.3
     - pybind11
     - cvxpy
-    - pyscipopt
 
 test:
   imports:
@@ -46,6 +46,7 @@ test:
     - pip check
     - ams st
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
