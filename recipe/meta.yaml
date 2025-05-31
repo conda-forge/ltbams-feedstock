@@ -1,5 +1,5 @@
 {% set name = "ltbams" %}
-{% set version = "1.0.11" %}
+{% set version = "1.0.12" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ltbams-{{ version }}.tar.gz
-  sha256: fa674e086b103fc93b3f1e59682471ba1c0dc4c7c32ac41b8e4c3fc3095a3c0a
+  sha256: 8e3ab22b356ab6bfde5f64eb7bdbdf053fb75cfacb02e38b542660946b3c47fb
 
 build:
   entry_points:
@@ -16,6 +16,15 @@ build:
   script: |
     mv pyproject.toml pyproject.toml.bak
     {{ PYTHON }} -m pip install . --no-build-isolation --no-deps
+
+    # === TEMPORARY FIX FOR CLOBBERWARNING ===
+    # Remove the 'tests' directory after installation.
+    # This works for noarch: python as the path is consistent.
+    # $PREFIX is the build environment's installation prefix.
+    # $PY_VER is the Python version.
+    rm -rf "${PREFIX}/lib/python${PY_VER}/site-packages/tests"
+    # ========================================
+
     mv pyproject.toml.bak pyproject.toml
   number: 0
   noarch: python
@@ -38,6 +47,7 @@ requirements:
     - andes >=1.9.3
     - pybind11
     - cvxpy
+    - clarabel
 
 test:
   imports:
@@ -48,6 +58,8 @@ test:
   requires:
     - python {{ python_min }}
     - pip
+    - pytest
+    - cffi
 
 about:
   home: https://github.com/CURENT/ams
