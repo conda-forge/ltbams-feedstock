@@ -1,5 +1,5 @@
 {% set name = "ltbams" %}
-{% set version = "1.0.12" %}
+{% set version = "1.0.13" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ltbams-{{ version }}.tar.gz
-  sha256: 8e3ab22b356ab6bfde5f64eb7bdbdf053fb75cfacb02e38b542660946b3c47fb
+  sha256: d4908671484a8dbf3de5073140edf9d8dd05a34483cfd9912524b6a3e38d1f4c
 
 build:
   entry_points:
