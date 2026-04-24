@@ -1,6 +1,6 @@
 {% set name = "ltbams" %}
 {% set version = "1.2.0" %}
-{% set python_min = "3.9" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -13,19 +13,7 @@ source:
 build:
   entry_points:
     - ams = ams.cli:main
-  script: |
-    mv pyproject.toml pyproject.toml.bak
-    {{ PYTHON }} -m pip install . --no-build-isolation --no-deps
-
-    # === TEMPORARY FIX FOR CLOBBERWARNING ===
-    # Remove the 'tests' directory after installation.
-    # This works for noarch: python as the path is consistent.
-    # $PREFIX is the build environment's installation prefix.
-    # $PY_VER is the Python version.
-    rm -rf "${PREFIX}/lib/python${PY_VER}/site-packages/tests"
-    # ========================================
-
-    mv pyproject.toml.bak pyproject.toml
+  script: {{ PYTHON }} -m pip install . --no-build-isolation --no-deps -vv
   number: 0
   noarch: python
 
@@ -33,7 +21,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - setuptools >=64
+    - setuptools-scm >=8
   run:
     - python >={{ python_min }}
     - kvxopt >=1.3.2.1
@@ -44,7 +33,7 @@ requirements:
     - matplotlib-base
     - psutil
     - openpyxl
-    - andes >=1.9.3
+    - andes >=2.0.0
     - pybind11
     - cvxpy
     - clarabel
